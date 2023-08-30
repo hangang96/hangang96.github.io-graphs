@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 800px;
+                 height: 800px;
+                 background-color: Black;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "SeaGreen", "font": {"color": "White"}, "id": "Zhejiang", "label": "Zhejiang", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u8521\u665a\u5a25", "label": "\u8521\u665a\u5a25", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u8521\u52c7\u98de", "label": "\u8521\u52c7\u98de", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u66f9\u9526\u708e", "label": "\u66f9\u9526\u708e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9648\u767d\u591c", "label": "\u9648\u767d\u591c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9648\u6dd1\u94a6", "label": "\u9648\u6dd1\u94a6", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9648\u6708\u660e", "label": "\u9648\u6708\u660e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9648\u589e\u6770", "label": "\u9648\u589e\u6770", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7a0b\u6000\u53cb", "label": "\u7a0b\u6000\u53cb", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c60\u660c\u6d77", "label": "\u6c60\u660c\u6d77", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c60\u592a\u5b81", "label": "\u6c60\u592a\u5b81", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u891a\u826f\u624d", "label": "\u891a\u826f\u624d", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4e01\u6653\u8679", "label": "\u4e01\u6653\u8679", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6a0a\u7ef4\u7eb2", "label": "\u6a0a\u7ef4\u7eb2", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u65b9\u677e\u71b9", "label": "\u65b9\u677e\u71b9", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u65b9\u6587\u60e0", "label": "\u65b9\u6587\u60e0", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u65b9\u6587\u4e00", "label": "\u65b9\u6587\u4e00", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5085\u4f50\u4e4b", "label": "\u5085\u4f50\u4e4b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u90ed\u5728\u8d3b", "label": "\u90ed\u5728\u8d3b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u80e1\u6b63\u6b66", "label": "\u80e1\u6b63\u6b66", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9ec4\u91d1\u8d35", "label": "\u9ec4\u91d1\u8d35", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9ec4\u7075\u5e9a", "label": "\u9ec4\u7075\u5e9a", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u59dc\u4eae\u592b", "label": "\u59dc\u4eae\u592b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u848b\u793c\u9e3f", "label": "\u848b\u793c\u9e3f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u91d1\u4ec1\u594e", "label": "\u91d1\u4ec1\u594e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5362\u66fc\u4e91", "label": "\u5362\u66fc\u4e91", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9646\u7a3c\u7965", "label": "\u9646\u7a3c\u7965", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u502a\u5b9d\u5143", "label": "\u502a\u5b9d\u5143", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u502a\u7acb\u6c11", "label": "\u502a\u7acb\u6c11", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6f58\u7ecd\u70b9", "label": "\u6f58\u7ecd\u70b9", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6f58\u6653\u4e1c", "label": "\u6f58\u6653\u4e1c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u94b1\u6dde\u751f", "label": "\u94b1\u6dde\u751f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4efb\u94ed\u5584", "label": "\u4efb\u94ed\u5584", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4efb\u8fdc", "label": "\u4efb\u8fdc", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5546\u632f\u54f2", "label": "\u5546\u632f\u54f2", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c88\u6d2a\u4fdd", "label": "\u6c88\u6d2a\u4fdd", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c88\u9521\u8363", "label": "\u6c88\u9521\u8363", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5bff\u7eaa\u82b3", "label": "\u5bff\u7eaa\u82b3", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c6a\u7ef4\u8f89", "label": "\u6c6a\u7ef4\u8f89", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u5efa\u534e", "label": "\u738b\u5efa\u534e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u793c\u7434", "label": "\u738b\u793c\u7434", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u7ef4\u8d24", "label": "\u738b\u7ef4\u8d24", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u4e91\u8def", "label": "\u738b\u4e91\u8def", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u6b63\u660e", "label": "\u738b\u6b63\u660e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5434\u6842\u6797", "label": "\u5434\u6842\u6797", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5434\u6d01\u654f", "label": "\u5434\u6d01\u654f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f90\u56fd\u73cd", "label": "\u5f90\u56fd\u73cd", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f90\u9759\u831c", "label": "\u5f90\u9759\u831c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f90\u9752", "label": "\u5f90\u9752", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f90\u9882\u5217", "label": "\u5f90\u9882\u5217", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u8bb8\u5efa\u5e73", "label": "\u8bb8\u5efa\u5e73", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u859b\u606d\u7a46", "label": "\u859b\u606d\u7a46", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6bb7\u5bc4\u660e", "label": "\u6bb7\u5bc4\u660e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6bb7\u4f5c\u708e", "label": "\u6bb7\u4f5c\u708e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4fde\u6b63\u8d3b", "label": "\u4fde\u6b63\u8d3b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u8fbe\u4eba", "label": "\u5f20\u8fbe\u4eba", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u5b66\u6210", "label": "\u5f20\u5b66\u6210", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u5b66\u8d24", "label": "\u5f20\u5b66\u8d24", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u4e4b\u4f1f", "label": "\u5f20\u4e4b\u4f1f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u90d1\u9a85\u96c4", "label": "\u90d1\u9a85\u96c4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5468\u798f\u4e91", "label": "\u5468\u798f\u4e91", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5468\u5229\u748b", "label": "\u5468\u5229\u748b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5468\u660e\u521d", "label": "\u5468\u660e\u521d", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5468\u6da6\u5e74", "label": "\u5468\u6da6\u5e74", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6731\u4e3d\u4e91", "label": "\u6731\u4e3d\u4e91", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6731\u8d77\u51e4", "label": "\u6731\u8d77\u51e4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u795d\u9e3f\u6770", "label": "\u795d\u9e3f\u6770", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u795d\u9e3f\u71b9", "label": "\u795d\u9e3f\u71b9", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"color": "SteelBlue", "from": "\u8521\u665a\u5a25", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u8521\u52c7\u98de", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u66f9\u9526\u708e", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u9648\u767d\u591c", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u9648\u6dd1\u94a6", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u9648\u6708\u660e", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u9648\u589e\u6770", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u7a0b\u6000\u53cb", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6c60\u660c\u6d77", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6c60\u592a\u5b81", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u891a\u826f\u624d", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u4e01\u6653\u8679", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6a0a\u7ef4\u7eb2", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u65b9\u677e\u71b9", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u65b9\u6587\u60e0", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u65b9\u6587\u4e00", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5085\u4f50\u4e4b", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u90ed\u5728\u8d3b", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u80e1\u6b63\u6b66", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u9ec4\u91d1\u8d35", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u9ec4\u7075\u5e9a", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u59dc\u4eae\u592b", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u848b\u793c\u9e3f", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u91d1\u4ec1\u594e", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5362\u66fc\u4e91", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u9646\u7a3c\u7965", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u502a\u5b9d\u5143", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u502a\u7acb\u6c11", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6f58\u7ecd\u70b9", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6f58\u6653\u4e1c", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u94b1\u6dde\u751f", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u4efb\u94ed\u5584", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u4efb\u8fdc", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5546\u632f\u54f2", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6c88\u6d2a\u4fdd", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6c88\u9521\u8363", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5bff\u7eaa\u82b3", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6c6a\u7ef4\u8f89", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u738b\u5efa\u534e", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u738b\u793c\u7434", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u738b\u7ef4\u8d24", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u738b\u4e91\u8def", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u738b\u6b63\u660e", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5434\u6842\u6797", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5434\u6d01\u654f", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f90\u56fd\u73cd", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f90\u9759\u831c", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f90\u9752", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f90\u9882\u5217", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u8bb8\u5efa\u5e73", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u859b\u606d\u7a46", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6bb7\u5bc4\u660e", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6bb7\u4f5c\u708e", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u4fde\u6b63\u8d3b", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f20\u8fbe\u4eba", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f20\u5b66\u6210", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f20\u5b66\u8d24", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5f20\u4e4b\u4f1f", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u90d1\u9a85\u96c4", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5468\u798f\u4e91", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5468\u5229\u748b", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5468\u660e\u521d", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u5468\u6da6\u5e74", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6731\u4e3d\u4e91", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u6731\u8d77\u51e4", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u795d\u9e3f\u6770", "to": "Zhejiang"}, {"color": "SteelBlue", "from": "\u795d\u9e3f\u71b9", "to": "Zhejiang"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

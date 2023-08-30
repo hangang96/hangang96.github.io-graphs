@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 800px;
+                 height: 800px;
+                 background-color: Black;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "SeaGreen", "font": {"color": "White"}, "id": "Jiangxi", "label": "Jiangxi", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9648\u660c\u4eea", "label": "\u9648\u660c\u4eea", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9093\u5fd7\u7457", "label": "\u9093\u5fd7\u7457", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6bb5\u9e23\u768b", "label": "\u6bb5\u9e23\u768b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7518\u4e45\u751f", "label": "\u7518\u4e45\u751f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u80e1\u677e\u67cf", "label": "\u80e1\u677e\u67cf", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u80e1\u4ee5\u7533", "label": "\u80e1\u4ee5\u7533", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9ec4\u5065\u4fdd", "label": "\u9ec4\u5065\u4fdd", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9ec4\u5efa\u8363", "label": "\u9ec4\u5efa\u8363", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u848b\u529b\u751f", "label": "\u848b\u529b\u751f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u848b\u6709\u7ecf", "label": "\u848b\u6709\u7ecf", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5eb7\u5bb6\u73d1", "label": "\u5eb7\u5bb6\u73d1", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5eb7\u6cf0", "label": "\u5eb7\u6cf0", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u96f7\u826f\u542f", "label": "\u96f7\u826f\u542f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u96f7\u53cb\u68a7", "label": "\u96f7\u53cb\u68a7", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u674e\u80dc\u6885", "label": "\u674e\u80dc\u6885", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5ed6\u4ee5\u539a", "label": "\u5ed6\u4ee5\u539a", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5ed6\u632f\u4f51", "label": "\u5ed6\u632f\u4f51", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u51cc\u4e91", "label": "\u51cc\u4e91", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5218\u7115\u8f89", "label": "\u5218\u7115\u8f89", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5218\u7eb6\u946b", "label": "\u5218\u7eb6\u946b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5362\u76db\u8431", "label": "\u5362\u76db\u8431", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9a6c\u5146\u7199", "label": "\u9a6c\u5146\u7199", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u90b1\u5c1a\u4ec1", "label": "\u90b1\u5c1a\u4ec1", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9976\u661f", "label": "\u9976\u661f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u76db\u6587\u6f9c", "label": "\u76db\u6587\u6f9c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u8212\u5b9d\u748b", "label": "\u8212\u5b9d\u748b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5b59\u529b\u5e73", "label": "\u5b59\u529b\u5e73", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4e07\u897f\u5eb7", "label": "\u4e07\u897f\u5eb7", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c6a\u6d4e\u6c11", "label": "\u6c6a\u6d4e\u6c11", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c6a\u5c11\u534e", "label": "\u6c6a\u5c11\u534e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c6a\u6cf0\u8363", "label": "\u6c6a\u6cf0\u8363", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u6653\u5e73", "label": "\u738b\u6653\u5e73", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5434\u672c\u6e05", "label": "\u5434\u672c\u6e05", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u59da\u4e9a\u5e73", "label": "\u59da\u4e9a\u5e73", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4f59\u8ba9\u5c27", "label": "\u4f59\u8ba9\u5c27", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4f59\u5fc3\u4e50", "label": "\u4f59\u5fc3\u4e50", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5de6\u745e", "label": "\u5de6\u745e", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"color": "SteelBlue", "from": "\u9648\u660c\u4eea", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u9093\u5fd7\u7457", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u6bb5\u9e23\u768b", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u7518\u4e45\u751f", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u80e1\u677e\u67cf", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u80e1\u4ee5\u7533", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u9ec4\u5065\u4fdd", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u9ec4\u5efa\u8363", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u848b\u529b\u751f", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u848b\u6709\u7ecf", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5eb7\u5bb6\u73d1", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5eb7\u6cf0", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u96f7\u826f\u542f", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u96f7\u53cb\u68a7", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u674e\u80dc\u6885", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5ed6\u4ee5\u539a", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5ed6\u632f\u4f51", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u51cc\u4e91", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5218\u7115\u8f89", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5218\u7eb6\u946b", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5362\u76db\u8431", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u9a6c\u5146\u7199", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u90b1\u5c1a\u4ec1", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u9976\u661f", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u76db\u6587\u6f9c", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u8212\u5b9d\u748b", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5b59\u529b\u5e73", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u4e07\u897f\u5eb7", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u6c6a\u6d4e\u6c11", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u6c6a\u5c11\u534e", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u6c6a\u6cf0\u8363", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u738b\u6653\u5e73", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5434\u672c\u6e05", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u59da\u4e9a\u5e73", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u4f59\u8ba9\u5c27", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u4f59\u5fc3\u4e50", "to": "Jiangxi"}, {"color": "SteelBlue", "from": "\u5de6\u745e", "to": "Jiangxi"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

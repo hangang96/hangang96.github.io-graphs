@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 800px;
+                 height: 800px;
+                 background-color: Black;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "SeaGreen", "font": {"color": "White"}, "id": "Liaoning", "label": "Liaoning", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9648\u6bbf\u73ba", "label": "\u9648\u6bbf\u73ba", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9648\u69b4", "label": "\u9648\u69b4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5201\u664f\u658c", "label": "\u5201\u664f\u658c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4e01\u8d1e\u8556", "label": "\u4e01\u8d1e\u8556", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u8463\u6770\u950b", "label": "\u8463\u6770\u950b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u51af\u51ed", "label": "\u51af\u51ed", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9ad8\u7ee7\u5e73", "label": "\u9ad8\u7ee7\u5e73", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5173\u6ee2", "label": "\u5173\u6ee2", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u8d3a\u6c34\u5f6c", "label": "\u8d3a\u6c34\u5f6c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u8d3e\u5ef6\u67f1", "label": "\u8d3e\u5ef6\u67f1", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c5f\u5929", "label": "\u6c5f\u5929", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u674e\u54ac\u6ecb", "label": "\u674e\u54ac\u6ecb", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5218\u56fd\u6069", "label": "\u5218\u56fd\u6069", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5218\u4e43\u4ef2", "label": "\u5218\u4e43\u4ef2", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7f57\u65e5\u65b0", "label": "\u7f57\u65e5\u65b0", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7f57\u632f\u7389", "label": "\u7f57\u632f\u7389", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u66f2\u5f66\u658c", "label": "\u66f2\u5f66\u658c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u9b41\u4f1f", "label": "\u738b\u9b41\u4f1f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5434\u58eb\u6587", "label": "\u5434\u58eb\u6587", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u89e3\u4fdd\u52e4", "label": "\u89e3\u4fdd\u52e4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u859b\u5b89\u52e4", "label": "\u859b\u5b89\u52e4", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5c39\u65e5\u9ad8", "label": "\u5c39\u65e5\u9ad8", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u5fb7\u660e", "label": "\u5f20\u5fb7\u660e", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u7389\u91d1", "label": "\u5f20\u7389\u91d1", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5468\u4e16\u70c8", "label": "\u5468\u4e16\u70c8", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"color": "SteelBlue", "from": "\u9648\u6bbf\u73ba", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u9648\u69b4", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5201\u664f\u658c", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u4e01\u8d1e\u8556", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u8463\u6770\u950b", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u51af\u51ed", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u9ad8\u7ee7\u5e73", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5173\u6ee2", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u8d3a\u6c34\u5f6c", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u8d3e\u5ef6\u67f1", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u6c5f\u5929", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u674e\u54ac\u6ecb", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5218\u56fd\u6069", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5218\u4e43\u4ef2", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u7f57\u65e5\u65b0", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u7f57\u632f\u7389", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u66f2\u5f66\u658c", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u738b\u9b41\u4f1f", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5434\u58eb\u6587", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u89e3\u4fdd\u52e4", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u859b\u5b89\u52e4", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5c39\u65e5\u9ad8", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5f20\u5fb7\u660e", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5f20\u7389\u91d1", "to": "Liaoning"}, {"color": "SteelBlue", "from": "\u5468\u4e16\u70c8", "to": "Liaoning"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
