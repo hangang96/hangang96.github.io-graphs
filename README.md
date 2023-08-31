@@ -23,7 +23,7 @@
 21. [湖南省](https://hangang96.github.io/hangang96.github.io-graphs/Hunan_subgraph.html)
 22. [匈牙利](https://hangang96.github.io/hangang96.github.io-graphs/Hungary_subgraph.html)
 23. [印度](https://hangang96.github.io/hangang96.github.io-graphs/India_subgraph.html)
-24.[内蒙古](https://hangang96.github.io/hangang96.github.io-graphs/Inner_Mongolia_subgraph.html)
+24. [内蒙古](https://hangang96.github.io/hangang96.github.io-graphs/Inner_Mongolia_subgraph.html)
 25. [日本](https://hangang96.github.io/hangang96.github.io-graphs/Japan_subgraph.html)
 26. [江苏省](https://hangang96.github.io/hangang96.github.io-graphs/Jiangsu_subgraph.html)
 27. [江西省](https://hangang96.github.io/hangang96.github.io-graphs/Jiangxi_subgraph.html)
