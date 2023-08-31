@@ -1,10 +1,10 @@
 #语言学家地图
 地图列表（词典顺序）
-1.[安徽省](https://hangang96.github.io/https://hangang96.github.io/hangang96.github.io-graphs/Anhui_subgraph.html)
-2.[澳大利亚](https://hangang96.github.io/hangang96.github.io-graphs/Austrilia_subgraph.html)
-3.[北京市](https://hangang96.github.io/hangang96.github.io-graphs/Beijing_subgraph.html)
-4.[加拿大](https://hangang96.github.io/hangang96.github.io-graphs/Canada_subgraph.html)
-5.[英国](https://hangang96.github.io/hangang96.github.io-graphs/England_subgraph.html)
+1. [安徽省](https://hangang96.github.io/https://hangang96.github.io/hangang96.github.io-graphs/Anhui_subgraph.html)
+2. [澳大利亚](https://hangang96.github.io/hangang96.github.io-graphs/Austrilia_subgraph.html)
+3. [北京市](https://hangang96.github.io/hangang96.github.io-graphs/Beijing_subgraph.html)
+4. [加拿大](https://hangang96.github.io/hangang96.github.io-graphs/Canada_subgraph.html)
+5. [英国](https://hangang96.github.io/hangang96.github.io-graphs/England_subgraph.html)
 6.[芬兰](https://hangang96.github.io/hangang96.github.io-graphs/Finland_subgraph.html)
 7.[前苏联](https://hangang96.github.io/hangang96.github.io-graphs/Former_Soviet_Union_subgraph.html)
 8.[法国](https://hangang96.github.io/hangang96.github.io-graphs/French_subgraph.html)
