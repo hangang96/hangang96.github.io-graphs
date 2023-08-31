@@ -43,10 +43,21 @@
 40. [新加坡](https://hangang96.github.io/hangang96.github.io-graphs/Singapore_subgraph.html)
 41. [瑞典](https://hangang96.github.io/hangang96.github.io-graphs/Sweden_subgraph.html)
 42. [瑞士](https://hangang96.github.io/hangang96.github.io-graphs/Swiss_subgraph.html)
-44. [天津省](https://hangang96.github.io/hangang96.github.io-graphs/Tianjin_subgraph.html)
-43. [台湾](https://hangang96.github.io/hangang96.github.io-graphs/Taiwan_subgraph.html)
+43. [天津省](https://hangang96.github.io/hangang96.github.io-graphs/Tianjin_subgraph.html)
+44. [台湾](https://hangang96.github.io/hangang96.github.io-graphs/Taiwan_subgraph.html)
 45. [西藏](https://hangang96.github.io/hangang96.github.io-graphs/Tibet_subgraph.html)
 46. [美国](https://hangang96.github.io/hangang96.github.io-graphs/USA_subgraph.html)
 47. [新疆](https://hangang96.github.io/hangang96.github.io-graphs/Xinjiang_subgraph.html)
 48. [云南省](https://hangang96.github.io/hangang96.github.io-graphs/Yunnan_subgraph.html)
 49. [浙江省](https://hangang96.github.io/hangang96.github.io-graphs/Zhejiang_subgraph.html)
+
+参考文献：【1】 《中国语言学家》编写组编. 中国现代语言学家. 石家庄：河北人民出版社, 1981.11.
+         【2】 《中国语言学家》编写组编写. 中国现代语言学家 第2分册. 石家庄：河北人民出版社, 1982.09.
+         【3】 《中国语言学家》编写组编写. 中国现代语言学家 第3分册. 石家庄：河北人民出版社, 1984.03.
+         【4】 《中国语言学家》编写组. 中国现代语言学家 第4分册. 石家庄：河北人民出版社, 1985.12.
+         【5】 《中国语言学家》编写组编写. 中国现代语言学家 第5分册. 石家庄：河北人民出版社, 1986.04.
+         【6】  中国语言学会《中国现代语言学家传略》编写组. 中国现代语言学家传略 第1卷. 石家庄：河北教育出版社, 2004.05.
+         【7】  中国语言学会《中国现代语言学家传略》编写组. 中国现代语言学家传略 第2卷. 石家庄：河北教育出版社, 2004.05.
+         【8】  中国语言学会《中国现代语言学家传略》编写组. 中国现代语言学家传略 第3卷. 石家庄：河北教育出版社, 2004.05.
+         【9】  中国语言学会《中国现代语言学家传略》编写组. 中国现代语言学家传略 第4卷. 石家庄：河北教育出版社, 2004.05.
+         【10】 照那斯图，李恒朴主编. 当代中国民族语言学家. 西宁：青海人民出版社, 1989.08.
