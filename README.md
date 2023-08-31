@@ -1,6 +1,6 @@
 # 语言学家地图（更新中）
 各地语言学家列表（词典顺序）
-<img width="955" alt="image" src="https://github.com/hangang96/hangang96.github.io-graphs/assets/77401162/ba26dc2a-eb07-4e95-b901-3dc8feac237a">
+<img width="960" alt="image" src="https://github.com/hangang96/hangang96.github.io-graphs/assets/77401162/8f12062f-6646-427a-a5c5-96d581ad2b18">
 #   [【地图】](https://hangang96.github.io/hangang96.github.io-graphs/world_map_with_subgraphs.html)
 1.  [安徽省](https://hangang96.github.io/hangang96.github.io-graphs/Anhui_subgraph.html)
 2.  [澳大利亚](https://hangang96.github.io/hangang96.github.io-graphs/Austrilia_subgraph.html)
