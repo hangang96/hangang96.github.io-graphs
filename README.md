@@ -44,7 +44,7 @@
 40. [新加坡](https://hangang96.github.io/hangang96.github.io-graphs/Singapore_subgraph.html)
 41. [瑞典](https://hangang96.github.io/hangang96.github.io-graphs/Sweden_subgraph.html)
 42. [瑞士](https://hangang96.github.io/hangang96.github.io-graphs/Swiss_subgraph.html)
-43. [天津省](https://hangang96.github.io/hangang96.github.io-graphs/Tianjin_subgraph.html)
+43. [天津市](https://hangang96.github.io/hangang96.github.io-graphs/Tianjin_subgraph.html)
 44. [台湾省](https://hangang96.github.io/hangang96.github.io-graphs/Taiwan_subgraph.html)
 45. [西藏自治区](https://hangang96.github.io/hangang96.github.io-graphs/Tibet_subgraph.html)
 46. [美国](https://hangang96.github.io/hangang96.github.io-graphs/USA_subgraph.html)
