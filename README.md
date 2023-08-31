@@ -8,7 +8,7 @@
 4.  [加拿大](https://hangang96.github.io/hangang96.github.io-graphs/Canada_subgraph.html)
 5.  [英国](https://hangang96.github.io/hangang96.github.io-graphs/England_subgraph.html)
 6.  [芬兰](https://hangang96.github.io/hangang96.github.io-graphs/Finland_subgraph.html)
-7.  [前苏联](https://hangang96.github.io/hangang96.github.io-graphs/Former_Soviet_Union_subgraph.html)
+7.  [俄罗斯（含前苏联）](https://hangang96.github.io/hangang96.github.io-graphs/Former_Soviet_Union_subgraph.html)
 8.  [法国](https://hangang96.github.io/hangang96.github.io-graphs/French_subgraph.html)
 9.  [福建省](https://hangang96.github.io/hangang96.github.io-graphs/Fujian_subgraph.html)
 10. [甘肃省](https://hangang96.github.io/hangang96.github.io-graphs/Gansu_subgraph.html)
