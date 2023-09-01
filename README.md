@@ -1,7 +1,9 @@
 # 语言学家地图（更新中）
-各地语言学家列表（词典顺序）<br>
-标注体例：循《中国语言学人名大辞典》：<br>
-传主的隶属，凡去世者，以最后任职(去世)所在国或省(地区)为准。如鲁迅入上海，蔡元培入香港，胡适入台湾。当代语言学者以任职所在国或省(地区)为准。目前在海外的中国语言学者(短期进修、讲学除外)，不论是否加入所在国国籍，一律列入所在国。<br>
+##各地语言学家列表（地点为词典顺序）<br>
+###标注体例：
+   循《中国语言学人名大辞典》：<br>
+   传主的隶属，凡去世者，以最后任职(去世)所在国或省(地区)为准。如鲁迅入上海，蔡元培入香港，胡适入台湾。当代语言学者以任职所在国或省(地区)为准。目前在海外的中国语言学者(短期进修、讲学除外)， 
+   不论是否加入所在国国籍，一律列入所在国。<br>
 <img width="960" alt="image" src="https://github.com/hangang96/hangang96.github.io-graphs/assets/77401162/8f12062f-6646-427a-a5c5-96d581ad2b18">
 #   [【地图】](https://hangang96.github.io/hangang96.github.io-graphs/world_map_with_subgraphs.html)
 1.  [安徽省](https://hangang96.github.io/hangang96.github.io-graphs/Anhui_subgraph.html)
