@@ -32,8 +32,8 @@
         <style type="text/css">
 
              #mynetwork {
-                 width: 600px;
-                 height: 600px;
+                 width: 700px;
+                 height: 500px;
                  background-color: Black;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Tibet", "label": "Tibet", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7533\u65b0\u6cf0", "label": "\u7533\u65b0\u6cf0", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u8054\u82ac", "label": "\u738b\u8054\u82ac", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6587\u56fd\u6839", "label": "\u6587\u56fd\u6839", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u5929\u9501", "label": "\u5f20\u5929\u9501", "shape": "dot"}]);
+                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Tibet", "label": "Tibet", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7533\u65b0\u6cf0", "label": "\u7533\u65b0\u6cf0", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u738b\u8054\u82ac", "label": "\u738b\u8054\u82ac", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6587\u56fd\u6839", "label": "\u6587\u56fd\u6839", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f20\u5929\u9501", "label": "\u5f20\u5929\u9501", "shape": "dot", "size": 5}]);
                   edges = new vis.DataSet([{"color": "LightBlue", "from": "Tibet", "to": "\u7533\u65b0\u6cf0", "width": 1}, {"color": "LightBlue", "from": "Tibet", "to": "\u738b\u8054\u82ac", "width": 1}, {"color": "LightBlue", "from": "Tibet", "to": "\u6587\u56fd\u6839", "width": 1}, {"color": "LightBlue", "from": "Tibet", "to": "\u5f20\u5929\u9501", "width": 1}]);
 
                   nodeColors = {};

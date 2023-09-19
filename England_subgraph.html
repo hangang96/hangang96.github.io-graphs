@@ -32,8 +32,8 @@
         <style type="text/css">
 
              #mynetwork {
-                 width: 600px;
-                 height: 600px;
+                 width: 700px;
+                 height: 500px;
                  background-color: Black;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "England", "label": "England", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Michael Halliday", "label": "Michael Halliday", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9ec4\u884d", "label": "\u9ec4\u884d", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u674e\u6587\u8087", "label": "\u674e\u6587\u8087", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Thomas Francis Wade", "label": "Thomas Francis Wade", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Herber Allen Giles", "label": "Herber Allen Giles", "shape": "dot"}]);
+                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "England", "label": "England", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Michael Halliday", "label": "Michael Halliday", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u9ec4\u884d", "label": "\u9ec4\u884d", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u674e\u6587\u8087", "label": "\u674e\u6587\u8087", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Thomas Francis Wade", "label": "Thomas Francis Wade", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Herber Allen Giles", "label": "Herber Allen Giles", "shape": "dot", "size": 5}]);
                   edges = new vis.DataSet([{"color": "LightBlue", "from": "England", "to": "Michael Halliday", "width": 1}, {"color": "LightBlue", "from": "England", "to": "\u9ec4\u884d", "width": 1}, {"color": "LightBlue", "from": "England", "to": "\u674e\u6587\u8087", "width": 1}, {"color": "LightBlue", "from": "England", "to": "Thomas Francis Wade", "width": 1}, {"color": "LightBlue", "from": "England", "to": "Herber Allen Giles", "width": 1}]);
 
                   nodeColors = {};

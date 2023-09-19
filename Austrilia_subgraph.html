@@ -32,8 +32,8 @@
         <style type="text/css">
 
              #mynetwork {
-                 width: 600px;
-                 height: 600px;
+                 width: 700px;
+                 height: 500px;
                  background-color: Black;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Austrilia", "label": "Austrilia", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Wolfgang Wilhem Frick", "label": "Wolfgang Wilhem Frick", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c83\u5c14\u592b\u5188\u00b7\u5a01\u5c14\u6d77\u95e8\u00b7\u5f17\u91cc\u514b", "label": "\u6c83\u5c14\u592b\u5188\u00b7\u5a01\u5c14\u6d77\u95e8\u00b7\u5f17\u91cc\u514b", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6b66\u679c", "label": "\u6b66\u679c", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4f0d\u4e91\u59ec", "label": "\u4f0d\u4e91\u59ec", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f90\u5bb6\u796f", "label": "\u5f90\u5bb6\u796f", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5468\u6653\u5eb7", "label": "\u5468\u6653\u5eb7", "shape": "dot"}]);
+                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Austrilia", "label": "Austrilia", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Wolfgang Wilhem Frick", "label": "Wolfgang Wilhem Frick", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6c83\u5c14\u592b\u5188\u00b7\u5a01\u5c14\u6d77\u95e8\u00b7\u5f17\u91cc\u514b", "label": "\u6c83\u5c14\u592b\u5188\u00b7\u5a01\u5c14\u6d77\u95e8\u00b7\u5f17\u91cc\u514b", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u6b66\u679c", "label": "\u6b66\u679c", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u4f0d\u4e91\u59ec", "label": "\u4f0d\u4e91\u59ec", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5f90\u5bb6\u796f", "label": "\u5f90\u5bb6\u796f", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u5468\u6653\u5eb7", "label": "\u5468\u6653\u5eb7", "shape": "dot", "size": 5}]);
                   edges = new vis.DataSet([{"color": "LightBlue", "from": "Austrilia", "to": "Wolfgang Wilhem Frick", "width": 1}, {"color": "LightBlue", "from": "Austrilia", "to": "\u6c83\u5c14\u592b\u5188\u00b7\u5a01\u5c14\u6d77\u95e8\u00b7\u5f17\u91cc\u514b", "width": 1}, {"color": "LightBlue", "from": "Austrilia", "to": "\u6b66\u679c", "width": 1}, {"color": "LightBlue", "from": "Austrilia", "to": "\u4f0d\u4e91\u59ec", "width": 1}, {"color": "LightBlue", "from": "Austrilia", "to": "\u5f90\u5bb6\u796f", "width": 1}, {"color": "LightBlue", "from": "Austrilia", "to": "\u5468\u6653\u5eb7", "width": 1}]);
 
                   nodeColors = {};

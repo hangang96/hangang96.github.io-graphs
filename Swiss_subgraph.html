@@ -32,8 +32,8 @@
         <style type="text/css">
 
              #mynetwork {
-                 width: 600px;
-                 height: 600px;
+                 width: 700px;
+                 height: 500px;
                  background-color: Black;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Swiss", "label": "Swiss", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Dr.Robert Gassamnn", "label": "Dr.Robert Gassamnn", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Gustav John Ramstedt", "label": "Gustav John Ramstedt", "shape": "dot"}]);
+                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Swiss", "label": "Swiss", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Dr.Robert Gassamnn", "label": "Dr.Robert Gassamnn", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Gustav John Ramstedt", "label": "Gustav John Ramstedt", "shape": "dot", "size": 5}]);
                   edges = new vis.DataSet([{"color": "LightBlue", "from": "Swiss", "to": "Dr.Robert Gassamnn", "width": 1}, {"color": "LightBlue", "from": "Swiss", "to": "Gustav John Ramstedt", "width": 1}]);
 
                   nodeColors = {};

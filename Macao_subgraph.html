@@ -32,8 +32,8 @@
         <style type="text/css">
 
              #mynetwork {
-                 width: 600px;
-                 height: 600px;
+                 width: 700px;
+                 height: 500px;
                  background-color: Black;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Macao", "label": "Macao", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7a0b\u7965\u5fbd", "label": "\u7a0b\u7965\u5fbd", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u51bc\u4e3a\u94ff", "label": "\u51bc\u4e3a\u94ff", "shape": "dot"}]);
+                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Macao", "label": "Macao", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u7a0b\u7965\u5fbd", "label": "\u7a0b\u7965\u5fbd", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "\u51bc\u4e3a\u94ff", "label": "\u51bc\u4e3a\u94ff", "shape": "dot", "size": 5}]);
                   edges = new vis.DataSet([{"color": "LightBlue", "from": "Macao", "to": "\u7a0b\u7965\u5fbd", "width": 1}, {"color": "LightBlue", "from": "Macao", "to": "\u51bc\u4e3a\u94ff", "width": 1}]);
 
                   nodeColors = {};

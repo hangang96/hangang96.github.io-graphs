@@ -32,8 +32,8 @@
         <style type="text/css">
 
              #mynetwork {
-                 width: 600px;
-                 height: 600px;
+                 width: 700px;
+                 height: 500px;
                  background-color: Black;
                  border: 1px solid lightgray;
                  position: relative;
@@ -88,7 +88,7 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Sweden", "label": "Sweden", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Klas Bernhard Johannes Karlgren", "label": "Klas Bernhard Johannes Karlgren", "shape": "dot"}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Gunnar Jarring", "label": "Gunnar Jarring", "shape": "dot"}]);
+                  nodes = new vis.DataSet([{"color": "Thistle", "font": {"color": "White"}, "id": "Sweden", "label": "Sweden", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Klas Bernhard Johannes Karlgren", "label": "Klas Bernhard Johannes Karlgren", "shape": "dot", "size": 5}, {"color": "#97c2fc", "font": {"color": "White"}, "id": "Gunnar Jarring", "label": "Gunnar Jarring", "shape": "dot", "size": 5}]);
                   edges = new vis.DataSet([{"color": "LightBlue", "from": "Sweden", "to": "Klas Bernhard Johannes Karlgren", "width": 1}, {"color": "LightBlue", "from": "Sweden", "to": "Gunnar Jarring", "width": 1}]);
 
                   nodeColors = {};
